@@ -1,8 +1,7 @@
 import { JSX, useState } from "react";
 import { useTodos } from "../contexts/TodoContext";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Button, Card, Text, TextInput } from "react-native-paper";
 import { FlatList, View } from "react-native";
+import { Button, Card, TextInput } from "react-native-paper";
 import { TodoWidget } from "../widgets/TodoWidget";
 
 export function TodoScreen(): JSX.Element {
@@ -11,8 +10,7 @@ export function TodoScreen(): JSX.Element {
   const { todos, addTodo } = useTodos();
 
   return (
-    <SafeAreaView style={{ flex: 1, gap: 20, padding: 20 }}>
-      <Text variant="displaySmall">Todo App</Text>
+    <View style={{ flex: 1, gap: 20, padding: 20 }}>
       <Card>
         <Card.Content style={{ gap: 10 }}>
           <TextInput label="Title" onChangeText={setTitle} />
@@ -33,11 +31,11 @@ export function TodoScreen(): JSX.Element {
         </Card.Content>
       </Card>
       <FlatList
-        data={[...todos]}
+        data={[...todos].filter((todo) => !todo[1].done)}
         keyExtractor={(item) => item[0].toString()}
         renderItem={(item) => <TodoWidget todo={item.item[1]} />}
         ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
       />
-    </SafeAreaView>
+    </View>
   );
 }
