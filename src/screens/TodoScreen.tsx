@@ -10,7 +10,7 @@ export function TodoScreen(): JSX.Element {
   const { todos, addTodo } = useTodos();
 
   return (
-    <View style={{ flex: 1, gap: 20, padding: 20 }}>
+    <View style={{ flex: 1, gap: 20, paddingHorizontal: 20, paddingBottom: 20 }}>
       <Card>
         <Card.Content style={{ gap: 10 }}>
           <TextInput label="Title" onChangeText={setTitle} />

@@ -9,7 +9,7 @@ export function DoneScreen(): JSX.Element {
   return (
     <View style={{ flex: 1, gap: 20, padding: 20 }}>
       <FlatList
-        data={[...todos]}
+        data={[...todos].filter((todo) => todo[1].done)}
         keyExtractor={(item) => item[0].toString()}
         renderItem={(item) => <TodoWidget todo={item.item[1]} />}
         ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
