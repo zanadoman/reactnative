@@ -4,7 +4,7 @@ import { useTodos } from "../contexts/TodoContext";
 import { Avatar, Card, IconButton } from "react-native-paper";
 
 export function TodoWidget({ todo }: { todo: Todo }): JSX.Element {
-  const { doneTodo, removeTodo } = useTodos();
+  const { toggleTodo, removeTodo } = useTodos();
 
   return (
     <Card>
@@ -15,7 +15,7 @@ export function TodoWidget({ todo }: { todo: Todo }): JSX.Element {
       />
       <Card.Actions>
         <IconButton icon="delete" onPress={() => removeTodo(todo.id)} />
-        <IconButton icon="check" onPress={() => doneTodo(todo.id)} />
+        <IconButton icon="check" onPress={() => toggleTodo(todo.id)} />
       </Card.Actions>
     </Card>
   );

@@ -4,7 +4,7 @@ import { createContext, JSX, ReactNode, useContext, useRef, useState } from "rea
 interface TodoContextType {
   todos: Map<number, Todo>;
   addTodo: (todo: Todo) => void;
-  doneTodo: (id: number) => void;
+  toggleTodo: (id: number) => void;
   removeTodo: (id: number) => void;
 }
 
@@ -20,9 +20,9 @@ export function TodoProvider({ children }: { children: ReactNode }): JSX.Element
     setTodos(map);
   }
 
-  function doneTodo(id: number): void {
+  function toggleTodo(id: number): void {
     const map = new Map(todos);
-    map.get(id)!.done = true;
+    map.get(id)!.done = !map.get(id)!.done;
     setTodos(map);
   }
 
@@ -33,7 +33,7 @@ export function TodoProvider({ children }: { children: ReactNode }): JSX.Element
   }
 
   return (
-    <TodoContext.Provider value={{ todos, addTodo, doneTodo, removeTodo }}>
+    <TodoContext.Provider value={{ todos, addTodo, toggleTodo, removeTodo }}>
       {children}
     </TodoContext.Provider>
   );
