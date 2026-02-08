@@ -3,8 +3,8 @@ import * as NavigationBar from "expo-navigation-bar";
 import { Appbar, BottomNavigation, PaperProvider } from "react-native-paper";
 import { TodoProvider } from "./src/contexts/TodoContext";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { TodoScreen } from "./src/screens/TodoScreen";
-import { DoneScreen } from "./src/screens/DoneScreen";
+import TodoScreen from "./src/screens/TodoScreen";
+import DoneScreen from "./src/screens/DoneScreen";
 
 export default function App(): JSX.Element {
   useEffect(() => {

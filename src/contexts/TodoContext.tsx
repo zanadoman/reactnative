@@ -1,4 +1,4 @@
-import { Todo } from "../models/Todo";
+import Todo from "../models/Todo";
 import { createContext, JSX, ReactNode, useContext, useRef, useState } from "react";
 import { Storage } from "../../Globals";
 

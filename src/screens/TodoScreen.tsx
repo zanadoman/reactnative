@@ -2,9 +2,9 @@ import { JSX, useState } from "react";
 import { useTodos } from "../contexts/TodoContext";
 import { FlatList, View } from "react-native";
 import { Button, Card, TextInput } from "react-native-paper";
-import { TodoWidget } from "../widgets/TodoWidget";
+import TodoWidget from "../widgets/TodoWidget";
 
-export function TodoScreen(): JSX.Element {
+export default function TodoScreen(): JSX.Element {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const { todos, addTodo } = useTodos();

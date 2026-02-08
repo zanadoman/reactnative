@@ -1,9 +1,9 @@
 import { JSX } from "react";
 import { useTodos } from "../contexts/TodoContext";
 import { FlatList, View } from "react-native";
-import { TodoWidget } from "../widgets/TodoWidget";
+import TodoWidget from "../widgets/TodoWidget";
 
-export function DoneScreen(): JSX.Element {
+export default function DoneScreen(): JSX.Element {
   const { todos } = useTodos();
 
   return (

@@ -1,11 +1,11 @@
-import { Todo } from "../models/Todo";
+import Todo from "../models/Todo";
 import { JSX, useState } from "react";
 import { useTodos } from "../contexts/TodoContext";
 import { View } from "react-native";
 import { Avatar, Button, Card, Dialog, IconButton, Portal, Text } from "react-native-paper";
 import QRCode from "react-native-qrcode-svg";
 
-export function TodoWidget({ todo }: { todo: Todo }): JSX.Element {
+export default function TodoWidget({ todo }: { todo: Todo }): JSX.Element {
   const [qrcode, showQrcode] = useState(false);
   const [remove, showRemove] = useState(false);
   const { toggleTodo, removeTodo } = useTodos();
