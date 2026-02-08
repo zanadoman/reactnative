@@ -36,7 +36,7 @@ export default function ScanWidget({ done }: { done: boolean }): JSX.Element | n
             <Camera
               style={{ flex: 1 }}
               device={device}
-              isActive={true}
+              isActive={hasPermission && scan}
               codeScanner={useCodeScanner({
                 codeTypes: ["qr"],
                 onCodeScanned: (codes) => {

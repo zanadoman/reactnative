@@ -6,9 +6,9 @@ import { Avatar, Button, Card, Dialog, IconButton, Portal, Text } from "react-na
 import QRCode from "react-native-qrcode-svg";
 
 export default function TodoWidget({ todo }: { todo: Todo }): JSX.Element {
+  const { toggleTodo, removeTodo } = useTodos();
   const [qrcode, setQrcode] = useState(false);
   const [remove, setRemove] = useState(false);
-  const { toggleTodo, removeTodo } = useTodos();
 
   return (
     <View>
