@@ -6,6 +6,7 @@ import {
   useCodeScanner,
 } from "react-native-vision-camera";
 import { FAB, Modal, Portal } from "react-native-paper";
+import { View } from "react-native";
 import { useTodos } from "../contexts/TodoContext";
 
 export default function ScanWidget({ done }: { done: boolean }): JSX.Element | null {
@@ -23,20 +24,30 @@ export default function ScanWidget({ done }: { done: boolean }): JSX.Element | n
       />
       <Portal>
         <Modal visible={hasPermission && scan} onDismiss={() => setScan(false)}>
-          <Camera
-            style={{ width: 500, height: 500 }}
-            device={device}
-            isActive={true}
-            codeScanner={useCodeScanner({
-              codeTypes: ["qr"],
-              onCodeScanned: (codes) => {
-                if (scan) {
-                  setScan(false);
-                  addTodo({ ...JSON.parse((codes[0].value ?? "{}").toString()), done: done });
-                }
-              },
-            })}
-          />
+          <View
+            style={{
+              alignSelf: "center",
+              width: 300,
+              height: 300,
+              borderRadius: 30,
+              overflow: "hidden",
+            }}
+          >
+            <Camera
+              style={{ flex: 1 }}
+              device={device}
+              isActive={true}
+              codeScanner={useCodeScanner({
+                codeTypes: ["qr"],
+                onCodeScanned: (codes) => {
+                  if (scan) {
+                    setScan(false);
+                    addTodo({ ...JSON.parse((codes[0].value ?? "{}").toString()), done: done });
+                  }
+                },
+              })}
+            />
+          </View>
         </Modal>
       </Portal>
     </>
