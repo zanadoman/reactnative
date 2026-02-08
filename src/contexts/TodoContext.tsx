@@ -20,7 +20,7 @@ export function TodoProvider({ children }: { children: ReactNode }): JSX.Element
 
   function addTodo(todo: Todo): void {
     const map = new Map(todos);
-    map.set((todo.id = id.current += 1), { ...todo, done: false });
+    map.set((todo.id = id.current += 1), todo);
     Storage.set(key, JSON.stringify([...map]));
     setTodos(map);
   }

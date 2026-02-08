@@ -20,7 +20,8 @@
     "react-native-paper": "^5.15.0",
     "react-native-qrcode-svg": "^6.3.21",
     "react-native-safe-area-context": "^5.6.2",
-    "react-native-svg": "^15.15.2"
+    "react-native-svg": "^15.15.2",
+    "react-native-vision-camera": "^4.7.3"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.14",

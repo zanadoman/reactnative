@@ -3,6 +3,7 @@ import { useTodos } from "../contexts/TodoContext";
 import { FlatList, View } from "react-native";
 import { Button, Card, TextInput } from "react-native-paper";
 import TodoWidget from "../widgets/TodoWidget";
+import ScanWidget from "../widgets/ScanWidget";
 
 export default function TodoScreen(): JSX.Element {
   const [title, setTitle] = useState("");
@@ -36,6 +37,7 @@ export default function TodoScreen(): JSX.Element {
         renderItem={(item) => <TodoWidget todo={item.item[1]} />}
         ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
       />
+      <ScanWidget done={false} />
     </View>
   );
 }
