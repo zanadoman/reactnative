@@ -18,7 +18,9 @@
     "react-native-mmkv": "^4.1.2",
     "react-native-nitro-modules": "^0.33.7",
     "react-native-paper": "^5.15.0",
-    "react-native-safe-area-context": "^5.6.2"
+    "react-native-qrcode-svg": "^6.3.21",
+    "react-native-safe-area-context": "^5.6.2",
+    "react-native-svg": "^15.15.2"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.14",
